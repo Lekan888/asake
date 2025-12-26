@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I Love you Asake 💗</title>
+<style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ffccd5, #ffe6f0);
+        min-height: 100vh;
+        overflow-y: auto; /* enables scrolling */
+        text-align: center;
+        position: relative;
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        color: #ff1a75;
+        font-size: 22px;
+        animation: floatUp 6s infinite ease-in;
+        opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+        0% {transform: translateY(20px) scale(1); opacity: 0;}
+        50% {opacity: 1;}
+        100% {transform: translateY(-800px) scale(0.4); opacity: 0;}
+    }
+
+    .wrapper {
+        margin-top: 40px;
+        width: 90%; max-width: 550px;
+        display: block;
+        margin-left:auto; margin-right:auto;
+        padding-bottom: 120px;
+    }
+
+    img {
+        width: 190px;height:190px;
+        border-radius:50%;
+        object-fit:cover;
+        box-shadow:0 0 20px rgba(255,0,90,0.4);
+        margin-bottom:20px;
+        animation: pop 1.6s ease;
+    }
+    @keyframes pop {from{transform:scale(.6);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+    h1 {
+        font-size:28px;
+        color:#e60073;
+        margin-bottom:15px;
+    }
+
+    p {
+        font-size:16px;
+        line-height:1.8;
+        color:#3b0021;
+        margin-bottom:25px;
+    }
+
+    #buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    position: relative; /* important */
+}
+
+button {
+    padding: 13px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: bold;
+    position: relative; /* keeps them aligned at first */
+}
+
+#yes {
+    background:#ff1a75;color:white;
+    box-shadow:0 0 10px rgba(255,0,120,.4);
+}
+
+#yes:hover {transform:scale(1.1);}
+
+#no {
+    background:#ff99c2;color:white;
+}
+</style>
+</head>
+<body>
+
+<!-- Floating hearts generator -->
+<script>
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(4+Math.random()*4)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),7000);
+}
+setInterval(createHeart,600);
+</script>
+
+<audio id="bgMusic" loop>
+    <source src="./drake.mp3" type="audio/mpeg">
+</audio>
+<div class="wrapper">
+
+    <!-- Replace with her picture e.g. asake.jpg -->
+    <img src="./asake.jpeg" alt="Asake">
+
+    <h1>Asake 💗</h1>
+
+    <p>
+        I still think about how July brought you into my life like a soft surprise.  
+        Talking to you became something I looked forward to your voice, your laughs, 
+        the way conversations never felt forced. <br><br>
+
+        August was different… those late-night calls where time moved without permission,
+        where we talked about everything and nothing, and somehow it still meant something.  
+        We paused for a bit, life happened but even during that break, you stayed in my mind. <br><br>
+
+        When we started talking again, it felt like pressing play on a song you don’t want to skip,
+        one that sounds better every time.  
+        You’re beautiful, sweet, playful, real and you make talking feel easy.  
+        I don’t just like you casually, I like you in a way I can’t ignore anymore. <br><br>
+
+        So I’ll just ask…  
+        <b>Asake, will you be my girlfriend? 💕</b>
+    </p>
+
+    <div id="buttons">
+        <button id="yes" onclick="sayYes()">Yes 💗</button>
+        <button id="no" onmouseover="runFromCursor()">No 🙈</button>
+    </div>
+
+</div>
+
+<script>
+function runFromCursor(){
+    const noBtn = document.getElementById("no");
+    noBtn.style.position = "absolute";  // moves only on hover
+    noBtn.style.left = Math.random()*70 + "vw";
+    noBtn.style.top = Math.random()*70 + "vh";
+}
+
+function playMusic(){
+    const music = document.getElementById("bgMusic");
+    music.play().catch(()=>{});
+}
+
+function sayYes(){
+    playMusic(); // starts music
+    document.body.innerHTML=`
+    <div style="text-align:center;padding:50px;color:#600030;background:#ffb3d9;height:100vh;display:flex;flex-direction:column;justify-content:center;animation:fadeIn 2s;">
+        <h1 style="font-size:34px;margin-bottom:15px;">You said YES! 💗</h1>
+        <p style="font-size:18px;max-width:500px;margin:auto;line-height:1.8;">
+            Now I owe you a warm hug, long calls, spontaneous laughter,
+            and memories sweeter than August nights.  
+            Thank you for choosing me — this is the start of something beautiful. 💞
+        </p>
+        <p style="margin-top:25px;font-size:22px;">Now come here, let me love you properly 😌💕</p>
+    </div>`;
+}
+</script>
+
+
+
+</body>
+</html>
